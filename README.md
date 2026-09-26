@@ -1,4 +1,4 @@
-# SOC Analyst Deep Dive — AWS Bedrock Claude Attack Data
+# DAY 1 - SOC Analyst Deep Dive — AWS Bedrock Claude Logs
 
 ## Executive Summary
 
