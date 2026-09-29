@@ -55,33 +55,11 @@ Directory:
 # Dataset summary
 
 - Scenario: Apache ActiveMQ exploit leading to LockBit ransomware activity
-- Environment: `attack_range`
 - Source dataset manifest: `activemq_exploit_lockbit_ransomware.yml`
 - Recommended index: `windows`
 - Recommended sourcetype for the normalized Splunk dataset: `windows`
 
-# Original dataset manifest
 
-```yaml
-author: Patrick Bareiss, Splunk
-id: 1d5e15bc-7eaf-46a2-8a92-ad9e3eb5cbb4
-date: '2026-04-28'
-description: Execution of ActiveMQ exploit and Lockbit ransomware based on the following DFIR report https://thedfirreport.com/2026/02/23/apache-activemq-exploit-leads-to-lockbit-ransomware/
-environment: attack_range
-directory: ActiveMQ_exploit_Lockbit_Ransomware
-datasets:
-- name: windows-sysmon
-  path: /datasets/apt_simulations/ActiveMQ_exploit_Lockbit_Ransomware/windows-sysmon.log
-  sourcetype: XmlWinEventLog
-  source: XmlWinEventLog:Microsoft-Windows-Sysmon/Operational
-- name: windows-security
-  path: /datasets/apt_simulations/ActiveMQ_exploit_Lockbit_Ransomware/windows-security.log
-  sourcetype: XmlWinEventLog
-  source: XmlWinEventLog:Security
-- name: windows-powershell
-  path: /datasets/apt_simulations/ActiveMQ_exploit_Lockbit_Ransomware/windows-powershell.log
-  sourcetype: XmlWinEventLog
-  source: XmlWinEventLog:Microsoft-Windows-PowerShell/Operational
 ```
 
 # Recommended monitor stanzas
@@ -109,7 +87,7 @@ sourcetype = windows
 - The `props.conf` and `transforms.conf` settings above normalize the events into a single searchable `windows` sourcetype with extracted fields such as `EventCode`, `ComputerName`, `Channel`, `Provider`, and all XML `<Data Name='...'>` pairs.
 - `TRUNCATE = 0` is used to avoid breaking long Windows XML events.
 
-# One-shot commands reference
+# Ingest Data in Splunk
 
 ## Create `indexes.conf`
 
